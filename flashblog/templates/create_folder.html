@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend>Create Folder</legend>
+            {{ form.name.label }}
+            {{ form.name(class="form-control") }}
+        </fieldset>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-primary") }}
+        </div>
+    </form>
+</div>
+{% endblock %}

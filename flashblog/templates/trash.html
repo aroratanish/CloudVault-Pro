@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h1 class="page-title">🗑️ Trash Bin</h1>
+
+<hr>
+
+{% if files|length > 0 %}
+
+    {% for file in files %}
+
+    <div class="card mb-3">
+
+        <div class="card-body">
+
+            <h5>{{ file.filename }}</h5>
+
+            <p class="text-muted">
+
+                Size:
+                {{ (file.size / 1024)|round(2) }} KB
+
+            </p>
+
+            <a href="{{ url_for('restore_file',
+                                file_id=file.id) }}"
+               class="btn btn-success btn-sm">
+
+                Restore
+
+            </a>
+            <a href="{{ url_for('permanent_delete',
+                    file_id=file.id) }}"
+                class="btn btn-danger btn-sm"
+                onclick="return confirm(
+                'Are you sure you want to permanently delete this file?'
+                );">
+
+                Delete Forever
+
+                </a>
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+{% else %}
+
+<div class="alert alert-info">
+
+    Trash is empty.
+
+</div>
+
+{% endif %}
+
+{% endblock %}

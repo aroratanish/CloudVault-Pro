@@ -1,0 +1,172 @@
+body{
+    background:#121212;
+    color:#f5f0e6;
+    font-family:'Segoe UI',sans-serif;
+}
+
+.navbar{
+    background:#1c1c1c !important;
+    border-bottom:1px solid #cbb89d;
+}
+
+.navbar-brand{
+    color:#d9c3a5 !important;
+    font-weight:700;
+}
+
+.nav-link{
+    color:#f5f0e6 !important;
+}
+
+.nav-link:hover{
+    color:#d9c3a5 !important;
+}
+
+.card{
+    background:#1e1e1e;
+    border:none;
+    border-radius:15px;
+    color:#f5f0e6;
+    box-shadow:0 4px 12px rgba(0,0,0,0.4);
+}
+
+.dashboard-card{
+    transition:0.3s;
+}
+
+.dashboard-card:hover{
+    transform:translateY(-5px);
+}
+
+.file-card{
+    border-left:5px solid #d9c3a5;
+}
+
+.folder-card{
+    border-left:5px solid #cbb89d;
+}
+
+.content-section{
+    background:#1e1e1e;
+    padding:25px;
+    border-radius:15px;
+    color:#f5f0e6;
+}
+
+.page-title{
+    color:#d9c3a5;
+    font-weight:700;
+}
+
+.text-muted{
+    color:#b9b1a4 !important;
+}
+
+.jumbotron{
+    background:#1e1e1e;
+    color:#f5f0e6;
+    border-radius:20px;
+}
+
+.btn-primary{
+    background:#d9c3a5;
+    border:none;
+    color:#121212;
+}
+
+.btn-primary:hover{
+    background:#cbb89d;
+    color:#121212;
+}
+
+.btn-success{
+    background:#8c7b6b;
+    border:none;
+}
+
+.btn-success:hover{
+    background:#766758;
+}
+
+.btn-info{
+    background:#b89b7a;
+    border:none;
+    color:#121212;
+}
+
+.btn-info:hover{
+    background:#a88c6e;
+}
+
+.btn-danger{
+    background:#7a4b4b;
+    border:none;
+}
+
+.btn-warning{
+    background:#d9c3a5;
+    border:none;
+    color:#121212;
+}
+
+.alert{
+    border:none;
+    border-radius:12px;
+}
+
+footer{
+    color:#b9b1a4;
+}
+
+.progress{
+    background:#2d2d2d;
+}
+
+.progress-bar{
+    background:#d9c3a5;
+}
+
+input,
+textarea,
+select{
+    background:#2a2a2a !important;
+    color:#f5f0e6 !important;
+    border:1px solid #555 !important;
+}
+
+input::placeholder{
+    color:#a9a9a9 !important;
+}
+
+.form-control:focus{
+    border-color:#d9c3a5;
+    box-shadow:0 0 0 0.2rem rgba(217,195,165,0.25);
+}
+
+.folder-card{
+    transition:0.3s;
+}
+
+.folder-card:hover{
+    transform:translateY(-6px);
+}
+
+.file-card{
+    transition:0.3s;
+}
+
+.file-card:hover{
+    transform:translateY(-4px);
+}
+
+.page-title{
+    color:#d9c3a5;
+}
+
+.btn{
+    border-radius:10px;
+}
+
+.card{
+    overflow:hidden;
+}

@@ -1,0 +1,236 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="card mb-4">
+    <div class="card-body">
+
+        <h1 class="page-title">
+            ☁️ CloudVault Pro
+        </h1>
+
+        <p class="text-muted mb-0">
+            Welcome back, {{ current_user.username }}.
+        </p>
+
+        <p class="text-muted">
+            Manage your files, folders and shared content.
+        </p>
+
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-md-3 mb-4">
+
+        <div class="card dashboard-card text-center">
+
+            <div class="card-body">
+
+                <h2>📄</h2>
+
+                <h2>{{ total_files }}</h2>
+
+                <p class="text-muted">
+                    Total Files
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3 mb-4">
+
+        <div class="card dashboard-card text-center">
+
+            <div class="card-body">
+
+                <h2>📁</h2>
+
+                <h2>{{ total_folders }}</h2>
+
+                <p class="text-muted">
+                    Folders
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3 mb-4">
+
+        <div class="card dashboard-card text-center">
+
+            <div class="card-body">
+
+                <h2>🔗</h2>
+
+                <h2>{{ shared_files }}</h2>
+
+                <p class="text-muted">
+                    Shared Files
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-3 mb-4">
+
+        <div class="card dashboard-card text-center">
+
+            <div class="card-body">
+
+                <h2>🗑️</h2>
+
+                <h2>{{ trash_files }}</h2>
+
+                <p class="text-muted">
+                    Trash
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-md-7">
+
+        <div class="card mb-4">
+
+            <div class="card-body">
+
+                <h4>
+                    💾 Storage Usage
+                </h4>
+
+                <hr>
+
+                <h2>
+                    {{ total_storage }} MB
+                </h2>
+
+                <p class="text-muted">
+                    Currently Stored
+                </p>
+
+                <div class="progress">
+
+                    <div class="progress-bar"
+                         role="progressbar"
+                         style="width: {{ (total_storage/100*100)|round }}%;">
+
+                    </div>
+
+                </div>
+
+                <br>
+
+                <small class="text-muted">
+                    Free Plan Limit: 100 MB
+                </small>
+
+            </div>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-body">
+
+                <h4>
+                    📄 Recent Uploads
+                </h4>
+
+                <hr>
+
+                {% for file in recent_files %}
+
+                <div class="card mb-2 file-card">
+
+                    <div class="card-body">
+
+                        <strong>
+
+                            {% if file.filename.endswith('.pdf') %}
+                                📄
+                            {% elif file.filename.endswith('.jpg') %}
+                                🖼️
+                            {% elif file.filename.endswith('.jpeg') %}
+                                🖼️
+                            {% elif file.filename.endswith('.png') %}
+                                🖼️
+                            {% elif file.filename.endswith('.docx') %}
+                                📘
+                            {% else %}
+                                📁
+                            {% endif %}
+
+                            {{ file.filename }}
+
+                        </strong>
+
+                        <br>
+
+                        <small class="text-muted">
+                            {{ (file.size/1024)|round(2) }} KB
+                        </small>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h4>
+                    ⚡ Quick Actions
+                </h4>
+                <hr>
+                <a href="{{ url_for('upload_file') }}"
+                   class="btn btn-primary btn-block mb-3">
+                    Upload File
+                </a>
+                <a href="{{ url_for('new_folder') }}"
+                   class="btn btn-warning btn-block mb-3">
+                    Create Folder
+                </a>
+                <a href="{{ url_for('trash') }}"
+                   class="btn btn-danger btn-block">
+                    Open Trash
+                </a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body text-center">
+                <h4>
+                    🚀 CloudVault Pro
+                </h4>
+                <hr>
+                <p>
+                    Secure file storage with sharing,
+                    folders, recovery and analytics.
+                </p>
+                <h2 class="page-title">
+                    {{ total_files }}
+                </h2>
+                <small class="text-muted">
+                    Assets Managed
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
